@@ -22,14 +22,21 @@
         }
 
         #button {
-            color: white;
-            width: 100%;
-            background-color: blue;
-            text-align: center;
-            bottom: 1%;
             position: absolute;
+            width: 50%;
             height: 4%;
+            bottom: 1%;
+            left: 25%;
+            color: white;
+            background-color: rgb(14,169,61);
+            text-align: center;
             font-size: larger;
+            border-radius:20px;
+            border: 3px solid black;
+            font-weight: bold;
+            padding: 6px;
+            text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+
         }
 
         #search-input-container {
@@ -45,21 +52,33 @@
         #BeaconButtons{
             color:white;
             padding :2px;
-            bottom :7%;
-            right :3%;
+            bottom :14%;
+            right :1%;
             border-color :black;
+            border-radius: 5px;
             position: absolute;
-            background: rgb(48, 152, 252);
+            background-color: rgb(159,226,255);
             z-index: 999;
-            height: 13%;
-            width: 20%;
-            font-size: 30px;
-        }
-        .but{
-            width: 30%;
-            height: 50%
+            height: 150px;
+            width: 60px;
+            font-size: 15px;
+            border: 1px solid black;
+            text-shadow: -0.5px 0 black, 0 0.5px black, 0.5px 0 black, 0 -0.5px black;
+
+
 
         }
+        .but{
+            width: 100%;
+            height: 40px;
+            display: block;
+            border-raidus:2px;
+        }
+        .but:focus{
+            color: white;
+            background: rgb(48, 152, 252);
+        }
+
 
 
     </style>
@@ -70,14 +89,14 @@
     <hr/>
     <pre><code id="poi-data"></code></pre>
 </div>
-<div id="button" onclick="makeRoute()">Navigate</div>
+<div id="button" onclick="makeRoute()">Start Navigation</div>
 <div id="search-input-container" class='search-control-default'>
     <input tabindex="0" id="searchInput" class="search-input" autocomplete="off" type="text" name='search'
            placeholder='Search'>
     <div id="suggestions" class="search-suggestions default"></div>
 </div>
 
-<div id="BeaconButtons">Beacon nummer <br>
+<div id="BeaconButtons">Position<br>
     <button class="but" onclick="changeDot(0)">1</button>
     <button class="but" onclick="changeDot(1)">2</button>
     <button class="but" onclick="changeDot(2)">3</button>
