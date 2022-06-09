@@ -2,6 +2,7 @@ var bluetoothlng=12.395161890820106
 var bluetoothlat=55.73229232272769
 var bluetoothzLevel =2
 
+
 const beacons = ["12.395177992715958|55.73224094676854|2","12.395227634902142|55.73216684335219|2", "12.395162257184722|55.73204114500106|2"];
 
 var myMap = new Mazemap.Map({
@@ -110,21 +111,44 @@ function printPoiData(poi) {
 
 }
 
+var count=1;
+
+
+function changeCount(){
+    if(count=1){
+        count=2;
+        console.log('hejjjjjjjjjj');
+        }
+        else if(count=2){
+        count=1;
+        }
+}
+
 function makeRoute() {
     var start = {lngLat: {lng: bluetoothlng, lat: bluetoothlat}, zLevel: bluetoothzLevel};
     var dest = {lngLat: {lng: lngLat.lng, lat: lngLat.lat}, zLevel: Zlevel};
 
-
     routeController = new Mazemap.RouteController(myMap);
 
-    Mazemap.Data.getRouteJSON(start, dest)
-        .then(function (geojson) {
-            routeController.setPath(geojson);
 
-            // Fit the map bounds to the path bounding box
-            var bounds = Mazemap.Util.Turf.bbox(geojson);
-            myMap.fitBounds(bounds, {padding: 100});
-        });
+    if(count=1){
+        Mazemap.Data.getRouteJSON(start, dest)
+            .then(function (geojson) {
+                routeController.setPath(geojson);
+
+                // Fit the map bounds to the path bounding box
+                var bounds = Mazemap.Util.Turf.bbox(geojson);
+                myMap.fitBounds(bounds, {padding: 100});
+                    });
+
+        console.log('HEJHEJHEJ');
+    }
+    else if(count=2){
+    routeController.clear();
+    console.log('imhere');
+
+    }
+
 }
 
 function changeDot(beaconnumber){
@@ -161,3 +185,34 @@ var mySearchInput = new Mazemap.Search.SearchInput({
 
 // Add zoom and rotation controls to the map.
 myMap.addControl(new Mazemap.mapboxgl.NavigationControl());
+
+//CSS BRAS
+
+function changeStyle(){
+        var element = document.getElementById("button");
+
+        if(count=1){
+        element.style.backgroundColor = "red";
+         element.innerHTML="Afslut";
+
+         }
+
+         else if(count=2){
+         element.style.backgroundColor = "green";
+         element.innerHTML="Start Navigation";
+         console.log('breeen');
+
+         }
+
+
+}
+
+//SammenSat Functioner
+function makeRouteWithChange(){
+
+    makeRoute();
+    changeStyle();
+    changeCount();
+    console.log(count);
+
+}
