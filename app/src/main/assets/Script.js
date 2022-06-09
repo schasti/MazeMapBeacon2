@@ -127,8 +127,8 @@ function changeCount(){
 function makeRoute() {
     var start = {lngLat: {lng: bluetoothlng, lat: bluetoothlat}, zLevel: bluetoothzLevel};
     var dest = {lngLat: {lng: lngLat.lng, lat: lngLat.lat}, zLevel: Zlevel};
-
     routeController = new Mazemap.RouteController(myMap);
+
 
 
     if(started==true){
@@ -140,10 +140,12 @@ function makeRoute() {
                 var bounds = Mazemap.Util.Turf.bbox(geojson);
                 myMap.fitBounds(bounds, {padding: 100});
                     });
+
     }
     else if(started==false){
         routeController.clear();
-        console.log('imhere');
+        clearPoiMarker();
+        location.reload();
     }
 
 }
