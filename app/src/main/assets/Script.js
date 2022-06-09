@@ -140,8 +140,6 @@ function makeRoute() {
                 var bounds = Mazemap.Util.Turf.bbox(geojson);
                 myMap.fitBounds(bounds, {padding: 100});
                     });
-
-        console.log('HEJHEJHEJ');
     }
     else if(count=2){
     routeController.clear();
