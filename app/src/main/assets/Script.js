@@ -111,7 +111,7 @@ function printPoiData(poi) {
 
 }
 
-var count=1;
+var started=true;
 
 
 function changeCount(){
@@ -131,7 +131,7 @@ function makeRoute() {
     routeController = new Mazemap.RouteController(myMap);
 
 
-    if(count=1){
+    if(started==true){
         Mazemap.Data.getRouteJSON(start, dest)
             .then(function (geojson) {
                 routeController.setPath(geojson);
@@ -141,16 +141,17 @@ function makeRoute() {
                 myMap.fitBounds(bounds, {padding: 100});
                     });
     }
-    else if(count=2){
-    routeController.clear();
-    console.log('imhere');
-
+    else if(started==false){
+        routeController.clear();
+        console.log('imhere');
     }
 
 }
 
 function changeDot(beaconnumber){
     data=beacons[beaconnumber].split('|')
+    bluetoothlng= data[0]
+    bluetoothlat= data[1]
 
     blueDot.setLngLatAnimated({lng: data[0], lat: data[1]});
     //blueDot.setZLevel(data[2]);
@@ -189,17 +190,17 @@ myMap.addControl(new Mazemap.mapboxgl.NavigationControl());
 function changeStyle(){
         var element = document.getElementById("button");
 
-        if(count=1){
+        if(started==true){
         element.style.backgroundColor = "red";
          element.innerHTML="Afslut";
-
+         started=false;
          }
 
-         else if(count=2){
-         element.style.backgroundColor = "green";
+         else if(started==false){
+         element.style.backgroundColor = "rgb(14,168,61)";
          element.innerHTML="Start Navigation";
          console.log('breeen');
-
+         started=true;
          }
 
 
@@ -210,7 +211,5 @@ function makeRouteWithChange(){
 
     makeRoute();
     changeStyle();
-    changeCount();
-    console.log(count);
 
 }
