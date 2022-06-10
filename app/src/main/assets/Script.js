@@ -12,7 +12,7 @@ var myMap = new Mazemap.Map({
     campuses: 88,
 
     // initial position in lngLat format
-    center: {lng: 12.3951194, lat: 55.732283006},
+    center: {lng: 12.395187600341018, lat: 55.73211190866394},
     // initial zoom
     zoom: 18,
     scrollZoom: true,
