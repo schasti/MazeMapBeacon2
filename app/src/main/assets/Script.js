@@ -1,5 +1,5 @@
-var bluetoothlng=12.395161890820106
-var bluetoothlat=55.73229232272769
+var bluetoothlng=12.395187600341018
+var bluetoothlat=55.73211190866394
 var bluetoothzLevel =1
 
 
