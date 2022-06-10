@@ -192,10 +192,14 @@ myMap.addControl(new Mazemap.mapboxgl.NavigationControl());
 function changeStyle(){
         var element = document.getElementById("button");
 
+
         if(started==true){
         element.style.backgroundColor = "red";
          element.innerHTML="Afslut";
          started=false;
+         element.style.width= '50px';
+
+
          }
 
          else if(started==false){
