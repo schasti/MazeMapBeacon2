@@ -1,9 +1,9 @@
 var bluetoothlng=12.395161890820106
 var bluetoothlat=55.73229232272769
-var bluetoothzLevel =2
+var bluetoothzLevel =1
 
 
-const beacons = ["12.395177992715958|55.73224094676854|2","12.395227634902142|55.73216684335219|2", "12.395162257184722|55.73204114500106|2"];
+const beacons = ["12.395187600341018|55.73211190866394|1","12.394907164907806|55.73183938129566|1", "12.39456431370212|55.73186350349732|1"];
 
 var myMap = new Mazemap.Map({
     // container id specified in the HTML
@@ -18,7 +18,7 @@ var myMap = new Mazemap.Map({
     scrollZoom: true,
     doubleClickZoom: true,
     touchZoomRotate: true,
-    zLevel: 2
+    zLevel: 1
 });
 
 myMap.on('load', function () {
@@ -104,7 +104,7 @@ function placePoiMarker(poi) {
 }
 
 function printPoiData(poi) {
-    var poiStr = JSON.stringify(poi, null, 2); // spacing level = 2
+    var poiStr = JSON.stringify(poi, null, 1); // spacing level = 2
     document.getElementById('poi-data').innerHTML = poiStr;
 
     console.log(poi.properties.title + " " + lngLat+Zlevel); // Can also look in your console to see the object there
